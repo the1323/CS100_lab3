@@ -1,0 +1,223 @@
+* {
+  /* margin:56px auto; */
+  margin: 0px;
+  padding: 0px;
+  /* max-width: 1190px; */
+  box-sizing: border-box;
+}
+body,
+html {
+  height: 100%;
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  background-color: #e6ecf0;
+}
+.content-wrapper {
+  /* background: #fff none repeat scroll 0 0; */
+  /* border-radius: 6px; */
+  height: 100%;
+  /* width:100%;
+  max-width:340px; */
+
+  max-width: 1190px;
+  margin: 56px auto;
+  /* max-width: 1190px;  */
+  /* margin:56px auto; */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.09);
+  /* display:inline-block; */
+}
+.navbar-light {
+  height: 46px;
+}
+.navbar-nav > li {
+  float: left;
+  position: relative;
+}
+.navbar-light .navbar-nav .nav-item .nav-link:hover {
+  color: #1da1f2;
+}
+.navbar-light .navbar-nav .nav-item:hover::after {
+  border-bottom: 5px solid #1da1f2;
+  bottom: -10px;
+  content: " ";
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+.navbar .navbar-nav .nav-item:hover::after {
+  width: 100%;
+}
+.left-wrapper {
+  background-color: #fff;
+  /* background: #fff none repeat scroll 0 0; */
+  /* border:1px solid #e1e8ed; */
+  float: left;
+  border-radius: 6px;
+  height: auto;
+  width: 290px;
+  max-width: auto;
+  /* max-width: 1190px;  */
+  /* margin:56px auto; */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.09);
+}
+.right-wrapper {
+  /* background: #fff none repeat scroll 0 0; */
+  /* border:1px solid #e1e8ed; */
+  background-color: #fff;
+  float: right;
+  border-radius: 6px;
+  height: auto;
+  width: 290px;
+  max-width: auto;
+  /* max-width: 1190px;  */
+  /* margin:56px auto; */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.09);
+}
+.center-wrapper {
+  /* background: #fff none repeat scroll 0 0; */
+  /* border:1px solid #e1e8ed; */
+  float: left;
+  border-radius: 6px;
+  height: auto;
+  width: auto;
+  max-width: auto;
+
+  /* margin: 20px; */
+  /* float:right; */
+  /* max-width: 1190px;  */
+  /* margin:56px auto; */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.09);
+}
+.main-wrapper {
+  background-color: black;
+  background-image: url("./images/ratatouille-banner.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70% auto;
+  border-radius: 4px 4px 0px 0px;
+  height: 95px;
+  width: 100%;
+}
+#profile-link {
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  float: left;
+  margin: -30px 10px 0px 10px;
+  max-width: 100%;
+  padding: 1px;
+  vertical-align: bottom;
+}
+#profile-img {
+  border: 1px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  height: 72px;
+  width: 72px;
+}
+#message-img {
+  border: 3px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  height: 60px;
+  width: 60px;
+}
+#profile-marg {
+  margin: 5px 0px 0px;
+}
+#profile-name {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+}
+#profile-name a {
+  color: inherit;
+}
+#profile-state {
+  padding: 15px;
+}
+#profile-Arrange {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  min-width: 100%;
+  padding: 0px;
+}
+@media screen and (max-width: 1200px) {
+  div.right-wrapper {
+    display: none;
+  }
+}
+img {
+  width: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.button {
+  background-color: #1da1f2;
+  font-size: 11px;
+  font-weight: 1000;
+  border-radius: 15px;
+  width: 90px;
+}
+.follow-button {
+  border: 2px solid #1da1f2;
+  background-color: white;
+  font-size: 11px;
+  color: #1da1f2;
+  font-weight: 1000;
+  border-radius: 15px;
+  width: 90px;
+}
+#profile-details a:hover {
+  text-decoration: none;
+}
+#nav-icon {
+  position: absolute;
+  left: 50%;
+  width: 40px;
+  opacity: 99;
+  z-index: 99;
+}
+#profile-number {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1da1f2;
+  padding-left: 10px;
+  /* transition: color 0.15s ease-in-out 0s; */
+}
+#profile-label {
+  color: #8899a6;
+  padding-left: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  overflow: hidden;
+}
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* .rm { display: none;} */
+.skip {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}

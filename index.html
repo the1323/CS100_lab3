@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style type="text/css">
+      .navbar-brand {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+      }
+    </style>
+    <title>Lab1 - Twitter Static Page</title>
+  </head>
+
+  <body>
+    <a href="#div">Jump to myDiv</a>
+    <!-- TODO: Create HTML elements for Twitter mockup inside body -->
+    <nav
+      role="navigation"
+      class="navbar fixed-top navbar-expand navbar-light bg-light"
+    >
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">Moments</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Notifications</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">Messages</a></li>
+        </ul>
+      </div>
+
+      <img
+        id="nav-icon"
+        src="./images/twitter-logo.png"
+        alt="twitter logo blue bird"
+      />
+
+      <button type="button" class="btn btn-primary button">Tweet</button>
+    </nav>
+
+    <main role="main">
+      <!-- <h1>hhhhhhh aa ss</h1> -->
+      <div class="content-wrapper">
+        <div class="left-wrapper">
+          <a class="profile-bg main-wrapper d-block"></a>
+          <div>
+            <a href="#" id="profile-link">
+              <img
+                src="images/ratatouille.jpg"
+                id="profile-img"
+                alt="ratatouille profile image"
+              />
+            </a>
+            <div id="profile-marg">
+              <div id="profile-name">
+                <a href="#">Remy</a>
+              </div>
+              <span>
+                <a><span style="color: gray">@remy</span></a>
+              </span>
+            </div>
+            <div id="profile-state">
+              <ul id="profile-Arrange">
+                <a>
+                  <span class="d-block" id="profile-label">Tweets</span>
+                  <span id="profile-number"> 5049 </span>
+                </a>
+
+                <a>
+                  <span class="d-block" id="profile-label">Following</span>
+                  <span id="profile-number"> 324 </span>
+                </a>
+
+                <a>
+                  <span class="d-block" id="profile-label">Followers</span>
+                  <span id="profile-number"> 809 </span>
+                </a>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div id="tweet-container" class="center-wrapper">
+          <div class="card">
+            <div class="row no-gutters">
+              <div class="col-md-2" style="padding-top: 15px">
+                <img
+                  src="images/ratatouille.jpg"
+                  class="card-img"
+                  id="message-img"
+                  alt="ratatouille profile image"
+                />
+              </div>
+              <div class="col-md">
+                <div class="card-body">
+                  <h6 class="card-title">
+                    <b>Remy</b><span style="color: gray"> @remy Nov 19</span>
+                  </h6>
+                  <p class="card-text">
+                    I'm taking this class called CS 110 and the TAs are all so
+                    <b>cool!</b>
+                  </p>
+                  <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="max-width: 610px">
+            <div class="row no-gutters">
+              <div class="col-md-2" style="padding-top: 15px">
+                <img
+                  src="images/ratatouille.jpg"
+                  class="card-img"
+                  id="message-img"
+                  alt="ratatouille profile image"
+                />
+              </div>
+              <div class="col-md">
+                <div class="card-body">
+                  <h6 class="card-title">
+                    <b>Remy</b><span style="color: gray"> @remy Nov 19</span>
+                  </h6>
+                  <p class="card-text">
+                    It's 2007. You just got home from elementary school. Your
+                    mon has pizza bagels in the oven. Ratatouille is in
+                    theaters. Life is good
+                  </p>
+                  <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="max-width: 610px">
+            <div class="row no-gutters">
+              <div class="col-md-2" style="padding-top: 15px">
+                <img
+                  src="images/ratatouille.jpg"
+                  class="card-img"
+                  id="message-img"
+                  alt="ratatouille profile image"
+                />
+              </div>
+              <div class="col-md">
+                <div class="card-body">
+                  <h6 class="card-title">
+                    <b>Remy</b><span style="color: gray"> @remy Nov 19</span>
+                  </h6>
+                  <p class="card-text">Let's make some pasta!</p>
+                  <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="max-width: 610px">
+            <div class="row no-gutters">
+              <div class="col-md-2" style="padding-top: 15px">
+                <img
+                  src="images/ratatouille.jpg"
+                  class="card-img"
+                  id="message-img"
+                  alt="ratatouille profile image"
+                />
+              </div>
+              <div class="col-md">
+                <div class="card-body">
+                  <h6 class="card-title">
+                    <b>Remy</b><span style="color: gray"> @remy Nov 19</span>
+                  </h6>
+                  <p class="card-text">Let's make some pasta!</p>
+                  <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card" style="max-width: 610px">
+            <div class="row no-gutters">
+              <div class="col-md-2" style="padding-top: 15px">
+                <img
+                  src="images/ratatouille.jpg"
+                  class="card-img"
+                  id="message-img"
+                  alt="ratatouille profile image"
+                />
+              </div>
+              <div class="col-md">
+                <div class="card-body">
+                  <h6 class="card-title">
+                    <b>Remy</b><span style="color: gray"> @remy Nov 19</span>
+                  </h6>
+                  <p class="card-text">Let's make some pasta!</p>
+                  <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-wrapper">
+          <h5 style="text-align: center"><b>Who to follow</b></h5>
+          <div
+            class="card"
+            style="width: 18rem; padding-left: 10px; padding-top: 10px"
+          >
+            <div class="row no-gutters">
+              <img
+                src="images/linguini.png"
+                class="card-img"
+                id="message-img"
+                alt="linguini profile image"
+              />
+              <div class="card-body">
+                <h6 class="card-title">
+                  <b>Linguini</b><span style="color: gray"> @linguini</span>
+                </h6>
+
+                <button type="button" class="btn btn-primary follow-button">
+                  Follow
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="card"
+            style="width: 18rem; padding-left: 10px; padding-top: 10px"
+          >
+            <div class="row no-gutters">
+              <img
+                src="images/ratatouille.jpg"
+                class="card-img"
+                id="message-img"
+                alt="ratatouille profile image"
+              />
+              <div class="card-body">
+                <h6 class="card-title">
+                  <b>Remy</b><span style="color: gray"> @remy</span>
+                </h6>
+
+                <button type="button" class="btn btn-primary follow-button">
+                  Follow
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
