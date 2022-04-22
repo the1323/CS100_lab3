@@ -10,8 +10,17 @@ const serverurl = "http://ec2-18-209-247-77.compute-1.amazonaws.com:3000";
 const url = serverurl + "/feed/random?q=weather";
 
 var tweetList = [];
-
+var pauseToggle = false;
+// var tt = ["2022-04-18T17:39:26.000Z", "2023-04-18T17:30:54.000Z"];
+// console.log(tt);
+// //tt.sort().reverse();
+// if (tt[0] > tt[1]) {
+//   console.log("t");
+// } else {
+//   console.log("ff");
+// }
 function getTweets() {
+  if (pauseToggle) return;
   fetch(url)
     .then(function (response) {
       return response.json();
@@ -20,9 +29,10 @@ function getTweets() {
       /*for (let i =0; Object.keys(data.statuses).length; i++) {
             console.log(data.statuses[i].text, data.statuses[i].id, data.statuses[i].created_at);
         }*/
-      //   console.log(data);
+      //console.log(data);
       //console.log(data.statuses[0]);
       saveTweets(data);
+      renderAll();
     })
     .catch(function (err) {
       console.warn("Something when wrong!!!", err);
@@ -53,20 +63,40 @@ function saveTweets(data) {
   //     }
   //   }
 }
-
-function renderHTML() {
-  let text = document.createTextNode("textssssssssss");
+function renderAll() {
+  while (tweetContainer.firstChild) {
+    tweetContainer.removeChild(tweetContainer.firstChild);
+  }
+  for (let i = 0; i < tweetList.length; i++) {
+    for (let j = 0; j < tweetList.length - i - 1; j++) {
+      if (tweetList[i].date > tweetList[j].date) {
+        [tweetList[j], tweetList[i]] = [tweetList[i], tweetList[j]];
+      }
+    }
+  }
+  for (let i = 0; i < tweetList.length; i++) {
+    renderHTML(tweetList[i]);
+  }
+}
+function renderHTML(tweet) {
+  let text = document.createTextNode(tweet.text);
 
   let textNode = document.createElement("p");
   textNode.className = "card-text";
   textNode.appendChild(text);
-  let title = document.createTextNode("name date");
+  time = tweet.date.slice(11, 19);
+  dateT = tweet.date.slice(0, 10);
+  let title = document.createTextNode(
+    tweet.userName + "  " + dateT + "  " + time
+  );
+
   let titleNode = document.createElement("h6");
   titleNode.className = "card-title";
   titleNode.appendChild(title);
   titleNode.style = "font-weight: bold";
   let card = document.createElement("div");
   card.className = "card";
+  card.style = "max-width: 610px";
   let body = document.createElement("div");
   body.className = "card-body";
   body.appendChild(titleNode);
@@ -77,7 +107,7 @@ function renderHTML() {
   bodyNode.style = "padding-left: 15px";
 
   let img = document.createElement("img");
-  img.src = "https://picsum.photos/200/300";
+  img.src = tweet.profileImgURL;
   img.className = "card-img";
   img.setAttribute("id", "message-img");
   let imgNode = document.createElement("div");
@@ -93,11 +123,31 @@ function renderHTML() {
 
   tweetContainer.appendChild(card);
 }
-while (tweetContainer.firstChild) {
-  tweetContainer.removeChild(tweetContainer.firstChild);
+function pauseHandler() {
+  pauseToggle = !pauseToggle;
+  if (pauseToggle)
+    document.getElementById("pause-button").innerHTML = "continue";
+  else document.getElementById("pause-button").innerHTML = "pause";
 }
-renderHTML();
-renderHTML();
+const handleSearch = (event) => {
+  searchString = event.target.value.trim().toLowerCase();
+  console.log(searchString);
+  while (tweetContainer.firstChild) {
+    tweetContainer.removeChild(tweetContainer.firstChild);
+  }
+  for (let i = 0; i < tweetList.length; i++) {
+    if (tweetList[i].text.includes(searchString)) {
+      renderHTML(tweetList[i]);
+    }
+  }
+};
+getTweets();
+
 window.onload = function () {
   setInterval(getTweets, 5000);
+  document
+    .getElementById("pause-button")
+    .addEventListener("click", () => pauseHandler());
+
+  document.getElementById("searchBar").addEventListener("input", handleSearch);
 };
