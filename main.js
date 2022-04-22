@@ -1,24 +1,13 @@
-// window.addEventListener("load", (event) => {
-//   console.log("load page");
-
-//   document
-//     .getElementById("cell1")
-//     .addEventListener("click", () => play("cell1"));
-// });
 const tweetContainer = document.getElementById("tweet-container");
 const serverurl = "http://ec2-18-209-247-77.compute-1.amazonaws.com:3000";
 const url = serverurl + "/feed/random?q=weather";
 
 var tweetList = [];
 var pauseToggle = false;
-// var tt = ["2022-04-18T17:39:26.000Z", "2023-04-18T17:30:54.000Z"];
-// console.log(tt);
-// //tt.sort().reverse();
-// if (tt[0] > tt[1]) {
-//   console.log("t");
-// } else {
-//   console.log("ff");
-// }
+
+/**
+ * main main function, fetch tweets from server.
+ */
 function getTweets() {
   if (pauseToggle) return;
   fetch(url)
@@ -38,12 +27,24 @@ function getTweets() {
       console.warn("Something when wrong!!!", err);
     });
 }
+/**
+ * Returns boolean value, check if tweet is duplicated
+ * @param {number} tweetId
+ * @returns {bool} bool
+ */
 function isDuplicate(tweetId) {
   for (let i = 0; i < tweetList.length; i++) {
     if (tweetList[i].id == tweetId) return true;
   }
   return false;
 }
+
+/**
+ * parse raw tweet data from JSON, and save to array of objects.
+ * @param {JSON} data
+ * @returns {arr} tweetList
+ */
+
 function saveTweets(data) {
   for (let i = 0; i < Object.keys(data.statuses).length; i++) {
     if (isDuplicate(data.statuses[i].id)) continue;
@@ -56,13 +57,13 @@ function saveTweets(data) {
     };
     tweetList.push(tweet);
   }
-  console.log(tweetList.length);
-  //   if (tweetList.length == 30) {
-  //     for (let i = 0; i < 30; i++) {
-  //       console.log(tweetList[i].id);
-  //     }
-  //   }
+  //console.log(tweetList.length);
 }
+
+/**
+ * Clear page and rerender all tweets to HTML
+ */
+
 function renderAll() {
   while (tweetContainer.firstChild) {
     tweetContainer.removeChild(tweetContainer.firstChild);
@@ -78,6 +79,13 @@ function renderAll() {
     renderHTML(tweetList[i]);
   }
 }
+
+/**
+ * render single tweet to bootstrap card
+ * @param {obj} tweet
+ * @returns {HTML}HTML
+ */
+
 function renderHTML(tweet) {
   let text = document.createTextNode(tweet.text);
 
@@ -123,12 +131,23 @@ function renderHTML(tweet) {
 
   tweetContainer.appendChild(card);
 }
+
+/**
+ * pause state, and change pause button text
+ * @returns {HTML}HTML
+ */
+
 function pauseHandler() {
   pauseToggle = !pauseToggle;
   if (pauseToggle)
     document.getElementById("pause-button").innerHTML = "continue";
   else document.getElementById("pause-button").innerHTML = "pause";
 }
+/**
+ * pause get query from HTML input, rerender filtered tweets.
+ * @param {event} event
+ * @returns {HTML}HTML
+ */
 const handleSearch = (event) => {
   searchString = event.target.value.trim().toLowerCase();
   console.log(searchString);
@@ -141,6 +160,7 @@ const handleSearch = (event) => {
     }
   }
 };
+
 getTweets();
 
 window.onload = function () {
