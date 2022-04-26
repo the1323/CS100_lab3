@@ -94,8 +94,8 @@ function renderHTML(tweet) {
   textNode.appendChild(text);
   time = tweet.date.slice(11, 19);
   dateT = tweet.date.slice(0, 10);
-  let title = document.createTextNode(
-    tweet.userName + "  " + dateT + "  " + time
+let title = document.createTextNode(
+    tweet.userName + " \u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0" + dateT + "  " + time
   );
 
   let titleNode = document.createElement("h6");
